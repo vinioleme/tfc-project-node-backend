@@ -4,13 +4,11 @@ import {
   InferAttributes,
   InferCreationAttributes,
   CreationOptional,
-} 
-from 'sequelize';
+} from 'sequelize';
 import db from '.';
 
 class MatchesModelSequelize extends Model<InferAttributes<MatchesModelSequelize>,
 InferCreationAttributes<MatchesModelSequelize>> {
-
   declare id: CreationOptional<number>;
   declare homeTeamId: number;
   declare homeTeamGoals: number;
