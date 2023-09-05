@@ -28,7 +28,6 @@ TeamsModelSequelize.init({
   modelName: 'teams',
   timestamps: false,
   underscored: true,
-  
 });
 
 /**
