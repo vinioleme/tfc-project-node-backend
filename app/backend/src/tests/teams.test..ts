@@ -1,45 +1,38 @@
 import * as sinon from 'sinon';
- import * as chai from 'chai';
- // @ts-ignore
- import chaiHttp = require('chai-http');
- import { allTeams } from './Mocks/Teams.mock';
+import * as chai from 'chai';
+// @ts-ignore
+import chaiHttp = require('chai-http');
+import { teams, team } from './Mocks/Teams.mock';
 
- import { app } from '../app';
- import TeamsModelSequelize from '../database/models/TeamsModelSequelize';
- import { Response } from 'superagent';
+import { app } from '../app';
+import TeamsModelSequelize from '../database/models/TeamsModelSequelize';
+import { Response } from 'superagent';
 
- chai.use(chaiHttp);
+chai.use(chaiHttp);
+
 const { expect } = chai;
-describe('Seu teste', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
-  // let chaiHttpResponse: Response;
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
-   //   expect(...)
-   // });
 
-   it('Testa se o endpoin GET /teams retorna todos os times corretamente', async () => {
-     sinon.stub(TeamsModelSequelize, 'findAll').resolves(allTeams as any);
+describe('Testes do teams', () => {
 
-     const result = await chai.request(app).get('/teams');
+  it('testa se GET /teams retorna todos os times corretamente', async () => {
+    sinon.stub(TeamsModelSequelize, 'findAll').resolves(teams as any);
 
-     const { body, status } = result;
+    const result = await chai.request(app).get('/teams');
 
-     expect(status).to.be.equal(200);
-     expect(body).to.be.deep.equal(allTeams);
-   });
- });
+    const { body, status } = result;
+    
+    expect(status).to.be.equal(200);
+    expect(body).to.be.deep.equal(teams);
+  });
+
+  it('Testa se GET /teams/:id retorna um time corretamente', async () => {
+    sinon.stub(TeamsModelSequelize, 'findByPk').resolves(team as any);
+
+    const result = await chai.request(app).get('/teams/1');
+
+    const { body, status } = result;
+
+    expect(status).to.be.equal(200);
+    expect(body).to.be.deep.equal(team);
+  });
+});

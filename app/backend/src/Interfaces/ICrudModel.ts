@@ -1,3 +1,4 @@
 export default interface ICRUDModel<T> {
-  findAll(): Promise<T[]>;
+  getAll(): Promise<T[]>;
+  getOne(id: string): Promise<T | null>;
 }

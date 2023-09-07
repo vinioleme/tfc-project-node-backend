@@ -3,6 +3,7 @@ import router from './routes';
 
 class App {
   public app: express.Express;
+
   constructor() {
     this.app = express();
 
@@ -25,6 +26,7 @@ class App {
       res.header('Access-Control-Allow-Headers', '*');
       next();
     };
+
     this.app.use(express.json());
     this.app.use(accessControl);
   }
@@ -33,6 +35,8 @@ class App {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
 }
+
 export { App };
+
 // Essa segunda exportação é estratégica, e a execução dos testes de cobertura depende dela
 export const { app } = new App();

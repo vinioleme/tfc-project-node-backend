@@ -12,6 +12,7 @@ InferCreationAttributes<TeamsModelSequelize>> {
   declare id: CreationOptional<number>;
   declare teamName: string;
 }
+
 TeamsModelSequelize.init({
   id: {
     type: DataTypes.INTEGER,
