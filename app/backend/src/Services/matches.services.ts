@@ -1,13 +1,11 @@
 import ICRUDMatches from '../Interfaces/ICRUDMatches';
 import IMatches from '../Interfaces/IMatches';
-import MatchesModel from '../Models/matches.model';
+import MatchesModel from '../Models/matchesModel';
 import IMatchesUpdate from '../Interfaces/IMatchesUpdate';
 import ICreateMatch from '../Interfaces/ICreateMatch';
 
 export default class MatchesService {
-  constructor(
-    private matchModel: ICRUDMatches<IMatches> = new MatchesModel(),
-  ) {}
+  constructor(private matchModel: ICRUDMatches<IMatches> = new MatchesModel()) {}
 
   async getAll(): Promise<{ status: string, data: IMatches[] }> {
     try {

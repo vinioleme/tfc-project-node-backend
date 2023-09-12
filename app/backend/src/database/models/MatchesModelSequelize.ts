@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   DataTypes,
   Model,
@@ -17,8 +16,6 @@ InferCreationAttributes<MatchesModelSequelize>> {
   declare awayTeamId: number;
   declare awayTeamGoals: number;
   declare inProgress: boolean;
-  static getAll: any;
-  static createNewMatch: any;
 }
 
 MatchesModelSequelize.init({

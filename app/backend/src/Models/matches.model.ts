@@ -9,7 +9,7 @@ export default class MatchesModel implements ICRUDMatches<IMatches> {
   private model = MatchesModelSequelize;
 
   async getAll(): Promise<IMatches[]> {
-    const matchResult = await this.model.getAll({
+    const matchResult = await this.model.findAll({
       include: [
         { model: TeamsModelSequelize, as: 'homeTeam', attributes: { exclude: ['id'] } },
         { model: TeamsModelSequelize, as: 'awayTeam', attributes: { exclude: ['id'] } },
@@ -20,7 +20,7 @@ export default class MatchesModel implements ICRUDMatches<IMatches> {
 
   async getAllInProgress(inProgress: string): Promise<IMatches[]> {
     const progress = inProgress === 'true';
-    const results = await this.model.getAll({
+    const results = await this.model.findAll({
       where: { inProgress: progress },
       include: [
         { model: TeamsModelSequelize, as: 'homeTeam', attributes: { exclude: ['id'] } },
@@ -59,7 +59,7 @@ export default class MatchesModel implements ICRUDMatches<IMatches> {
       ...match,
       inProgress: true,
     };
-    const result = await this.model.createNewMatch(allTheInfos);
+    const result = await this.model.create(allTheInfos);
     return result.dataValues;
   }
 }
