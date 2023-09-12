@@ -6,6 +6,7 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import TeamsModelSequelize from './TeamsModelSequelize';
 
 class MatchesModelSequelize extends Model<InferAttributes<MatchesModelSequelize>,
 InferCreationAttributes<MatchesModelSequelize>> {
@@ -15,6 +16,8 @@ InferCreationAttributes<MatchesModelSequelize>> {
   declare awayTeamId: number;
   declare awayTeamGoals: number;
   declare inProgress: boolean;
+  static getAll: any;
+  static createNewMatch: any;
 }
 
 MatchesModelSequelize.init({
@@ -51,10 +54,10 @@ MatchesModelSequelize.init({
     * Associations 1:N devem ficar em uma das instâncias de modelo
     * */
 
-// OtherModel.belongsTo(Example, { foreignKey: 'campoA', as: 'campoEstrangeiroA' });
-// OtherModel.belongsTo(Example, { foreignKey: 'campoB', as: 'campoEstrangeiroB' });
+MatchesModelSequelize.belongsTo(TeamsModelSequelize, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+MatchesModelSequelize.belongsTo(TeamsModelSequelize, { foreignKey: 'awayTeamId', as: 'awayTeam' });
 
-// Example.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
-// Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
+TeamsModelSequelize.hasMany(MatchesModelSequelize, { foreignKey: 'homeTeamId', as: 'homeMatch' });
+TeamsModelSequelize.hasMany(MatchesModelSequelize, { foreignKey: 'awayTeamId', as: 'awayMatch' });
 
 export default MatchesModelSequelize;
