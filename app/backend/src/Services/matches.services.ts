@@ -1,6 +1,6 @@
 import ICRUDMatches from '../Interfaces/ICRUDMatches';
 import IMatches from '../Interfaces/IMatches';
-import MatchesModel from '../Models/matchesModel';
+import MatchesModel from '../Models/matches.model';
 import IMatchesUpdate from '../Interfaces/IMatchesUpdate';
 import ICreateMatch from '../Interfaces/ICreateMatch';
 
