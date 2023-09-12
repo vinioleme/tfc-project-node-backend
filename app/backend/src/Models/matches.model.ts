@@ -31,10 +31,8 @@ export default class MatchesModel implements ICRUDMatches<IMatches> {
   }
 
   async matchesUpdate(id: string): Promise<{ message: string }> {
-    await this.model.update({
-      inProgress: false }, { where: { id } });
-    return {
-      message: 'Finished' };
+    await this.model.update({ inProgress: false }, { where: { id } });
+    return { message: 'Finished' };
   }
 
   async update(id: string, match: IMatchesUpdate): Promise<{ message: string }> {
