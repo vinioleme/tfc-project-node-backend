@@ -1,5 +1,5 @@
-import IMatchesUpdate from './IMatchesUpdate';
-import ICreateMatch from './ICreateMatch';
+import IMatchesUpdate from './IUpdateMatches';
+import ICreateMatch from './createNewMatchInterface';
 
 export default interface ICRUDMatches<T> {
   getAll(): Promise<T[]>;

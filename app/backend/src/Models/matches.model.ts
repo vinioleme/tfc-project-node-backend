@@ -1,9 +1,9 @@
 import MatchesModelSequelize from '../database/models/MatchesModelSequelize';
-import ICRUDMatches from '../Interfaces/ICRUDMatches';
-import IMatches from '../Interfaces/IMatches';
+import ICRUDMatches from '../Interfaces/MatchesCrud';
+import IMatches from '../Interfaces/MatchesInterface';
 import TeamsModelSequelize from '../database/models/TeamsModelSequelize';
-import IMatchesUpdate from '../Interfaces/IMatchesUpdate';
-import ICreateMatch from '../Interfaces/ICreateMatch';
+import IMatchesUpdate from '../Interfaces/IUpdateMatches';
+import ICreateMatch from '../Interfaces/createNewMatchInterface';
 
 export default class MatchesModel implements ICRUDMatches<IMatches> {
   private model = MatchesModelSequelize;

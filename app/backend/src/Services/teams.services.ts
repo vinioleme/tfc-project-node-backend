@@ -1,5 +1,5 @@
-import ICRUDModel from '../Interfaces/ICrudModel';
-import ITeams from '../Interfaces/ITeams';
+import ICRUDModel from '../Interfaces/ModelCrud';
+import ITeams from '../Interfaces/TeamsInterface';
 import TeamsModel from '../Models/teams.model';
 
 export default class TeamsService {

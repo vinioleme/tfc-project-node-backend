@@ -6,7 +6,8 @@ export default class LoginController {
     private loginService = new LoginService(),
   ) {}
 
-  getLogin(req: Request, res: Response) {
+  getLogin(req:
+  Request, res: Response) {
     const { email, password } = req.body;
     this.loginService
       .getLogin(email, password)
@@ -17,7 +18,8 @@ export default class LoginController {
       .catch((error) => res.status(500).json({ message: 'Internal Server Error', error }));
   }
 
-  getAllRole(req: Request, res: Response) {
+  getAllRole(req:
+  Request, res: Response) {
     const { token } = req.body;
     this.loginService
       .getAllRole(token)

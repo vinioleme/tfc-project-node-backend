@@ -1,6 +1,6 @@
-import ICRUDLeaderboard from '../Interfaces/ICrudLeader';
-import ILeaderboard from '../Interfaces/ILeaderboard';
-import LeaderboardModel from '../Models/leaderboardModel';
+import ICRUDLeaderboard from '../Interfaces/LeaderboardCrud';
+import ILeaderboard from '../Interfaces/LeaderboardInterface';
+import LeaderboardModel from '../Models/leaderboard.model';
 
 export default class LeaderboardService {
   constructor(
@@ -8,11 +8,13 @@ export default class LeaderboardService {
   ) {}
 
   async getAll(): Promise<{ status: string, data: ILeaderboard[] }> {
-    try {
-      const allTheTeams = await this.leaderBoardModel.getAll();
-      return { status: 'SUCCESS', data: allTheTeams };
-    } catch (error) {
-      throw new Error('Failed to retrieve leaderboard data');
-    }
+    const allTheTeams = await this.leaderBoardModel.getAll();
+
+    return { status: 'SUCCESS', data: allTheTeams };
+  }
+
+  async getAllAway(): Promise<{ status: string, data: ILeaderboard[] }> {
+    const allTheTeams = await this.leaderBoardModel.getAllAway();
+    return { status: 'SUCCESS', data: allTheTeams };
   }
 }

@@ -22,6 +22,13 @@ const create = {
   awayTeamGoals: 2
 }
 
+const error = {
+  homeTeamId: 1,
+  awayTeamId: 1,
+  homeTeamGoals: 2,
+  awayTeamGoals: 2
+}
+
 const resultcreate = {
   id: 1,
   homeTeamId: 16,
@@ -29,13 +36,6 @@ const resultcreate = {
   awayTeamId: 8,
   awayTeamGoals: 2,
   inProgress: true
-}
-
-const error = {
-  homeTeamId: 1,
-  awayTeamId: 1,
-  homeTeamGoals: 2,
-  awayTeamGoals: 2
 }
 
   export {

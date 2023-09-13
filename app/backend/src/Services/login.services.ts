@@ -1,6 +1,6 @@
 import { compareSync } from 'bcryptjs';
-import IUsers from '../Interfaces/IUsers';
-import ICRUDUser from '../Interfaces/ICRUDuser';
+import IUsers from '../Interfaces/UsersInterface';
+import ICRUDUser from '../Interfaces/UsersCrud';
 import UserModel from '../Models/login.model';
 import JWT from '../utils/JWT';
 

@@ -1,8 +1,8 @@
-import ICRUDMatches from '../Interfaces/ICRUDMatches';
-import IMatches from '../Interfaces/IMatches';
+import ICRUDMatches from '../Interfaces/MatchesCrud';
+import IMatches from '../Interfaces/MatchesInterface';
 import MatchesModel from '../Models/matches.model';
-import IMatchesUpdate from '../Interfaces/IMatchesUpdate';
-import ICreateMatch from '../Interfaces/ICreateMatch';
+import IMatchesUpdate from '../Interfaces/IUpdateMatches';
+import ICreateMatch from '../Interfaces/createNewMatchInterface';
 
 export default class MatchesService {
   constructor(private matchModel: ICRUDMatches<IMatches> = new MatchesModel()) {}
